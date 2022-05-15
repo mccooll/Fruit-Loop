@@ -4,6 +4,14 @@ import './App.css';
 function App() {
   // Here is an array
   const fruit =["Apples","Pears","Cherries","Grapes","Orange","Banana","Blueberries","Lemon","Mango","Papaya","Pineapple","Watermelon","Cantalope","Honeydew"];
+
+  const sortFruit = fruit => {
+    const newFruit = [...fruit];
+    newFruit.sort();
+    return newFruit;
+  }
+
+  const sortedFruit = sortFruit(fruit);
   /*
     Using React, write a function that will:
     
@@ -23,7 +31,10 @@ function App() {
   return (
     <main>
       <ul class="fruits">
-        {/*Nothing here, use javascript to embed the list items*/}
+        {
+          /* Use javascript to embed the list items */
+          sortedFruit.map(f => <li>{f}</li>)
+        }
     </ul>
     </main>
   );
