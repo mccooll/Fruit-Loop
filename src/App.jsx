@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+
+  const [highlightedIndex,setHighlightIndex] = useState(null);
+  
   // Here is an array
   const fruit =["Apples","Pears","Cherries","Grapes","Orange","Banana","Blueberries","Lemon","Mango","Papaya","Pineapple","Watermelon","Cantalope","Honeydew"];
 
@@ -33,7 +36,7 @@ function App() {
       <ul class="fruits">
         {
           /* Use javascript to embed the list items */
-          sortedFruit.map(f => <li>{f}</li>)
+          sortedFruit.map((f,i) => <li onClick={()=>setHighlightIndex(i)} style={{color:i===highlightedIndex ? 'red': 'black'}}>{f}</li>)
         }
     </ul>
     </main>
